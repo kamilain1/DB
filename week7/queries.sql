@@ -32,7 +32,7 @@ AND film.title NOT IN (SELECT film.title from rental, inventory, film
 					   AND rental.inventory_id = inventory.inventory_id 
 					   AND inventory.film_id = film.film_id);
 
--- There are some nested loops, which affect performance. We can improve the effectiveness of a query by indexing the table, for example btree.
+-- Nested loops and sequential scans affect performance the most. We can improve the effectiveness of a query by indexing the table, for example btree.
 
 --2.2
 
