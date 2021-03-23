@@ -1,0 +1,47 @@
+--1.1
+
+BEGIN;
+UPDATE accounts 
+SET account_credit = account_credit - 500 WHERE account_id = 1;
+UPDATE accounts 
+SET account_credit = account_credit + 500 WHERE account_id = 3;
+
+UPDATE accounts 
+SET account_credit = account_credit - 700 WHERE account_id = 2;
+UPDATE accounts 
+SET account_credit = account_credit + 700 WHERE account_id = 1;
+
+UPDATE accounts 
+SET account_credit = account_credit - 100 WHERE account_id = 2;
+UPDATE accounts 
+SET account_credit = account_credit + 100 WHERE account_id = 3;
+
+SELECT * from accounts;
+ROLLBACK;
+SELECT * from accounts;
+
+--1.2
+
+BEGIN;
+UPDATE accounts
+SET account_credit  = account_credit - 500 WHERE account_id = 1;
+UPDATE accounts
+SET account_credit  = account_credit + 500 WHERE account_id = 3;
+
+UPDATE accounts
+SET account_credit  = account_credit - 730 WHERE account_id = 2;
+UPDATE accounts 
+SET account_credit  = account_credit + 700 WHERE account_id = 1;
+UPDATE accounts 
+SET account_credit  = account_credit + 30 WHERE account_id = 4;
+
+UPDATE accounts 
+SET account_credit  = account_credit - 130 WHERE account_id = 2;
+UPDATE accounts 
+SET account_credit  = account_credit + 100 WHERE account_id = 3;
+UPDATE accounts 
+SET account_credit  = account_credit + 30 WHERE account_id = 4;
+
+SELECT * from accounts;
+ROLLBACK;
+SELECT * from accounts;
